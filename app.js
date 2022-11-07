@@ -28,7 +28,9 @@ spotifyApi
 
 // Our routes go here:
 app.get("/", (req, res) => {
-  res.render("homepage");
+  res.render("homepage", {
+    style: ["styles.css"],
+  });
   console.log(req.body);
 });
 
@@ -41,7 +43,11 @@ app.get("/artist-search", (req, res) => {
       const imageAlbum = itemsArtists.images;
 
       // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
-      res.render("artist-search-results", { itemsArtists, imageAlbum });
+      res.render("artist-search-results", {
+        itemsArtists,
+        imageAlbum,
+        style: ["styles.css"],
+      });
     })
     .catch((err) =>
       console.log("The error while searching artists occurred: ", err)
@@ -56,7 +62,7 @@ app.get("/albums/:id", (req, res, next) => {
     function (data) {
       console.log("Artist albums", data.body.items);
       const artistAlbum = data.body.items;
-      res.render("album", { artistAlbum });
+      res.render("album", { artistAlbum, style: ["styles.css"] });
     },
     function (err) {
       console.error(err);
@@ -71,7 +77,7 @@ app.get("/tracks/:id", (req, res, next) => {
     function (data) {
       console.log("Tracks", data.body.items[0].preview_url);
       const trackAlbum = data.body.items;
-      res.render("tracks", { trackAlbum });
+      res.render("tracks", { trackAlbum, style: ["styles.css"] });
     },
     function (err) {
       console.log("Something went wrong!", err);

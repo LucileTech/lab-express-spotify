@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito+Sans:wght@300&display=swap");
+
+* {
+  display: flex;
+  flex-direction: column;
+  background-color: silver;
+  justify-content: center;
+  align-items: center;
+  font-family: "Abril Fatface", cursive;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+/* unvisited link */
+a:link {
+  color: black;
+  transition: O.5s;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: dodgerblue;
+}
+
+/* selected link */
+a:active {
+  color: black;
+}
+
+img {
+  width: 10rem;
+  height: 10rem;
+}
